@@ -8,7 +8,14 @@ attr_reader :id
   def initialize(name, grade, id=nil)
     @name=name
     @grade=grade
-    @id=nil
+    @id=id 
   end
 
+  def self.create_table
+    sql = "CREATE TABLE IF NOT EXISTS students (
+    id INTEGER PRIMARY KEY, 
+    name TEXT, 
+    grade INTEGER);"
+    DB[:conn].execute(sql)
+  end 
 end
