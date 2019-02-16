@@ -20,9 +20,7 @@ attr_reader :id
   end
 
   def self.drop_table
-    sql = "DROP TABLE IF EXISTS students"
-
-    DB[:conn].execute(sql)
+    DB[:conn].execute("DROP TABLE IF EXISTS students")
   end
 
   def update
@@ -47,4 +45,6 @@ attr_reader :id
     student.save
     student
   end
+
+  def self.new_from_db
 end
